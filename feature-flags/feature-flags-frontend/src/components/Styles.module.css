@@ -1,0 +1,16 @@
+.min_input_width {
+    min-width: 120px;
+}
+
+.white {
+    color: white;
+}
+
+.spacing {
+    justify-content: center;
+}
+
+.margin_padding {
+    margin: 15px;
+    padding: 15px;
+}

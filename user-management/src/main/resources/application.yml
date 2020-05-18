@@ -1,0 +1,31 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/user_management_db
+    username: postgres
+    password: pstgSQLp@55
+    driver-class-name:  org.postgresql.Driver
+    initialization-mode: always
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        generate_statistics: true
+        format_sql: true
+        default_schema: user_management
+        dialect: org.hibernate.dialect.PostgreSQL10Dialect
+  flyway:
+    enabled: true
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql: trace
