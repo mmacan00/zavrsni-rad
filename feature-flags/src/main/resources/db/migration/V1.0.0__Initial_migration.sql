@@ -25,7 +25,7 @@ CREATE TABLE feature_flags.or_operation
     CONSTRAINT FKar51ne4h5oy89ntgbqrrc9n9h FOREIGN KEY (feature_availability_rule_id) REFERENCES feature_flags.feature_availability_rule (id)
 )
 
-CREATE TABLE FeatureFlagsDB.feature_flags.participant
+CREATE TABLE feature_flags.participant
 (
     feature_availability_rule_id varchar(36) COLLATE SQL_Latin1_General_CP1_CI_AS  NOT NULL,
     user_id                      varchar(255) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
