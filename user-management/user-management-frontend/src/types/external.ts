@@ -1,6 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
-// Generated using typescript-generator version 2.19.577 on 2020-05-18 21:54:41.
+// Generated using typescript-generator version 2.19.577 on 2020-05-31 19:39:44.
 
 export interface User {
     id: string;

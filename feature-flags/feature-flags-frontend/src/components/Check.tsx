@@ -2,6 +2,7 @@ import React from "react";
 import {Button, Container, Grid, Paper, TextField} from "@material-ui/core";
 import styles from "./Styles.module.css";
 import {isUserAllowed} from "../services/FeatureAvailabilityRuleService";
+import {NamespaceSelector} from "./NamespaceSelector";
 
 interface State {
     userId: string;
@@ -10,7 +11,7 @@ interface State {
     allowed?: string;
 }
 
-export class Demo extends React.Component<{}, State>{
+export class Check extends React.Component<{}, State>{
 
     state = {
         userId: '',
@@ -51,15 +52,22 @@ export class Demo extends React.Component<{}, State>{
     private renderNamespaceInput = () => {
         return (
             <Grid item xs={3}>
-                <TextField id="namespace" label="namespace" value={this.state.namespace} onChange={this.handleNamespaceChange}/>
+                <NamespaceSelector namespace={this.state.namespace} handleChange={this.handleNamespaceChange}/>
+                {/*<TextField id="namespace" label="namespace" value={this.state.namespace} onChange={this.handleNamespaceChange}/>*/}
             </Grid>
         );
     };
 
-    private handleNamespaceChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    // private handleNamespaceChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    //     this.setState({
+    //         namespace: e.target.value
+    //     })
+    // };
+
+    private handleNamespaceChange = (event: React.ChangeEvent<{ value: string }>): void => {
         this.setState({
-            namespace: e.target.value
-        })
+            namespace: event.target.value
+        });
     };
 
     private renderFeatureInput = () => {

@@ -20,6 +20,8 @@ spring:
         dialect: org.hibernate.dialect.SQLServer2012Dialect
   flyway:
     enabled: true
+    schemas: feature_flags
+    baseline-on-migrate: true
 
 logging:
   level:

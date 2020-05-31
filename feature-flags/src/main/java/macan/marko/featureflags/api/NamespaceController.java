@@ -1,6 +1,7 @@
 package macan.marko.featureflags.api;
 
 import lombok.AllArgsConstructor;
+import macan.marko.featureflags.model.NamespaceRequest;
 import macan.marko.featureflags.service.NamespaceService;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,13 +20,13 @@ public class NamespaceController {
     }
 
     @PostMapping
-    public void save(@RequestBody String namespace) {
-        service.save(namespace);
+    public void save(@RequestBody NamespaceRequest namespace) {
+        service.save(namespace.getNamespace());
     }
 
     @PatchMapping("/{oldNamespaceName}")
-    public void update(@PathVariable String oldNamespaceName, @RequestBody String newNamespaceName) {
-        service.update(oldNamespaceName, newNamespaceName);
+    public void update(@PathVariable String oldNamespaceName, @RequestBody NamespaceRequest newNamespaceName) {
+        service.update(oldNamespaceName, newNamespaceName.getNamespace());
     }
 
     @DeleteMapping("/{namespace}")

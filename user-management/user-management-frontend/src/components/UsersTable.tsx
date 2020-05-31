@@ -38,7 +38,7 @@ export class UsersTable extends React.Component<{}, State> {
                         {this.mapRows()}
                     </TableBody>
                 </Table>
-                <Button onClick={this.handleAndButtonClick} variant={"contained"}>Add</Button>
+                <Button onClick={this.handleAddButtonClick} variant={"contained"}>Add</Button>
             </TableContainer>
         );
     }
@@ -67,8 +67,8 @@ export class UsersTable extends React.Component<{}, State> {
         this.setState({users});
     }
 
-    private handleAndButtonClick = () => {
-        if (this.state.users[this.state.users.length - 1].id) {
+    private handleAddButtonClick = () => {
+        if (this.state.users.length === 0 || this.state.users[this.state.users.length - 1].id) {
             this.setState({
                 users: this.state.users.concat({
                     id: '',
@@ -90,7 +90,11 @@ export class UsersTable extends React.Component<{}, State> {
     private extractCorrectIndex = (userId?: string): number | null => {
         if (userId) {
             return this.state.users.findIndex(user => user.id === userId);
-        } else if (!this.state.users[this.state.users.length - 1].id && this.state.users.length - 1 !== 0) {
+        }
+        else if (this.state.users.length === 0) {
+            return 0;
+        }
+        else if (!this.state.users[this.state.users.length - 1].id) {
             return this.state.users.length - 1;
         }
         return null;

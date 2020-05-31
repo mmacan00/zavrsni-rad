@@ -44,5 +44,3 @@ CREATE TABLE feature_flags.and_operation
     CONSTRAINT UKnstolu2k1oyuwu2rfr6vihhsm UNIQUE (or_operation_id, group_strategy),
     CONSTRAINT FKavblce4o4gm26nhudltotvesu FOREIGN KEY (or_operation_id) REFERENCES feature_flags.or_operation (id)
 )
-
-INSERT INTO feature_flags.namespace (namespace) VALUES ('ExampleApp1'), ('ExampleApp2'), ('ExampleApp3');

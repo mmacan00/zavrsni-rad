@@ -33,7 +33,7 @@ public class UserMatcher {
         for (FilterClause clause : clauses) {
             if (clause.getCondition().equals("=")) {
                 andPredicates.add(cb.equal(user.get(clause.getColumn()), clause.getCriteria()));
-            } else if (clause.getCondition().equals("!=")) {
+            } else if (clause.getCondition().equals("<>")) {
                 andPredicates.add(cb.notEqual(user.get(clause.getColumn()), clause.getCriteria()));
             }
         }

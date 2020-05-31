@@ -11,11 +11,8 @@ import javax.validation.constraints.NotNull;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class NamespaceUpdateRequest {
+public class NamespaceRequest {
 
-    @NotNull(message = "oldNamespaceName must not be null")
-    private String oldNamespaceName;
-
-    @NotNull(message = "newNamespaceName must not be null")
-    private String newNamespaceName;
+    @NotNull(message = "namespace must not be null")
+    private String namespace;
 }

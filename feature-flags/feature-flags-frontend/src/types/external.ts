@@ -1,6 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
-// Generated using typescript-generator version 2.19.577 on 2020-05-18 21:55:16.
+// Generated using typescript-generator version 2.19.577 on 2020-05-31 19:40:25.
 
 export interface AndOperationModel {
     groupStrategy: string;
@@ -32,9 +32,8 @@ export interface FilterClause {
     criteria: string;
 }
 
-export interface NamespaceUpdateRequest {
-    oldNamespaceName: string;
-    newNamespaceName: string;
+export interface NamespaceRequest {
+    namespace: string;
 }
 
 export interface OrOperationModel {

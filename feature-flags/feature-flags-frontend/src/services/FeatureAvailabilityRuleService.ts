@@ -1,4 +1,4 @@
-import {FeatureAvailabilityRuleModel} from '../types/external';
+import {FeatureAvailabilityRuleModel, NamespaceRequest} from '../types/external';
 
 export const getAllFeatureAvailabilityRules = async (): Promise<FeatureAvailabilityRuleModel[]> => {
     const response = await fetch('/api/feature-availability-rule');
@@ -46,7 +46,23 @@ export const getAllNamespaces = async (): Promise<string[]> => {
     return await response.json()
 }
 
+export const deleteNamespace = async (namespace: string): Promise<void> => {
+    await fetch(`/api/namespace/${namespace}`, {
+        method: "DELETE",
+    });
+}
+
+export const saveNamespace = async (namespace: NamespaceRequest): Promise<void> => {
+    await fetch('/api/namespace', {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(namespace)
+    });
+}
+
 export const isUserAllowed = async (namespace: string, feature: string, userId: string): Promise<string> => {
-    const response =  await fetch(`api/feature-flag?namespace=${namespace}&feature=${feature}&userId=${userId}`)
+    const response = await fetch(`api/feature-flag?namespace=${namespace}&feature=${feature}&userId=${userId}`)
     return response.text();
 }
